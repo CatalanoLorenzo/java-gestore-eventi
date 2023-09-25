@@ -1,6 +1,8 @@
 package org.java.eventi;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -100,5 +102,25 @@ public class Main {
 			e.printStackTrace();
 		}
 		input.close();
+		
+		
+		//-----------------------------------------------
+		List<Evento> eventi = null  ;
+		try {
+			eventi.add( new Concerto("concerto1",data, 54,12, 60,23,
+					 new BigDecimal("10.25")));
+			eventi.add(new Concerto("concerto2",data, 54,12, 60,23,
+					 new BigDecimal("10.25")));
+			eventi.add(new Concerto("concerto3",data, 54,12, 60,23,
+					 new BigDecimal("10.25")));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		ProgammEventi Programma = new ProgammEventi("Progromma", eventi);
+		System.out.println(Programma.numeroEventi());
+		System.out.println(Programma);
+		Programma.suovaListaEventi();
+		
 	}
 }

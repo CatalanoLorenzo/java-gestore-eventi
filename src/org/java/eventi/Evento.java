@@ -1,7 +1,7 @@
 package org.java.eventi;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Evento {
 

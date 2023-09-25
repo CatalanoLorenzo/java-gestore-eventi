@@ -1,5 +1,7 @@
 package org.java.eventi;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +39,41 @@ public class ProgammEventi {
 	// -----------------------------------------------
 
 	// ----------------FUNZIONI---------------------
+	public BigDecimal mediaPrezzoConcerto(List<Concerto> listaConcerti) {
+		int i=0;
+		BigDecimal somma = null;
+		for (Concerto concerto : listaConcerti) {
+			somma = somma.add(concerto.getPrezzo());
+			i++;
+		}
+	    BigDecimal media = somma.divide(BigDecimal.valueOf(listaConcerti.size()), 2, RoundingMode.HALF_UP);
+		return media;
+	}
+	public BigDecimal mediaPrezzoSpettacolo(List<Spettacolo> listaSpettacolo) {
+		int i=0;
+		BigDecimal somma = null;
+		for (Spettacolo spettacolo : listaSpettacolo) {
+			somma = somma.add(spettacolo.getPrezzo());
+			i++;
+		}
+	    BigDecimal media = somma.divide(BigDecimal.valueOf(listaSpettacolo.size()), 2, RoundingMode.HALF_UP);
+		return media;
+	}
+	public BigDecimal mediaPrezzoEvento(List<Evento> listaEvento) {
+		int i=0;
+		BigDecimal somma = null;
+		for (Evento evento : listaEvento) {
+			if(somma.add(((Concerto) evento).getPrezzo())!= null) {
+				somma = somma.add(((Concerto) evento).getPrezzo());
+			}else {
+				somma = somma.add(((Spettacolo) evento).getPrezzo());
+
+			}
+			i++;
+		}
+	    BigDecimal media = somma.divide(BigDecimal.valueOf(listaEvento.size()), 2, RoundingMode.HALF_UP);
+		return media;
+	}
 	public void aggiungiEvento(Evento evento) {
 		this.eventi.add(evento);
 	}
@@ -61,12 +98,22 @@ public class ProgammEventi {
 		this.eventi.clear();
 	}
 
+	@SuppressWarnings({ "null", "unchecked" })
 	public String ProgrammString() {
 
 		String stringaEvento = this.titolo + "\n";
-		for (Evento evento : eventi) {
+		 List <Evento> [] eventiordinato = null ;
+		 int counterOrdinato = 0;
+		 for (Evento evento : eventi) {
+			 if(((Evento) evento).getData().isAfter (((Evento) eventiordinato[counterOrdinato]).getData())) {
+				 eventiordinato[counterOrdinato]= (List<Evento>) evento;
+				 counterOrdinato++;
+			 }
+		}
 
-			stringaEvento += evento.getData() + " - " + evento.getTitolo() + "\n";
+		for (List<Evento> evento : eventiordinato) {
+
+			stringaEvento += ((Evento) evento).getData() + " - " + ((ProgammEventi) evento).getTitolo() + "\n";
 
 		}
 		return stringaEvento;
