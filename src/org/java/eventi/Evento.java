@@ -52,7 +52,8 @@ public class Evento {
 	public Evento(String titolo, LocalDate data, int numeroPostiTotali) throws Exception {
 		this.setTitolo(titolo);
 		this.setNumeroPostiPrenotati(0);
-		this.setNumeroPostiTotali(numeroPostiTotali);	}
+		this.setNumeroPostiTotali(numeroPostiTotali);	
+		this.setData(data);}
 	// -----------------------------------------------
 
 	// -------------SET e GET----------------
