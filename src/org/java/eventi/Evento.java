@@ -44,17 +44,15 @@ public class Evento {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return  this.data + " - " + this.titolo;
 	}
 	// -----------------------------------------------
 
 	// --------------Costruttore--------------------------
-	public Evento(String titolo, Date data, int numeroPostiTotali) throws Exception {
+	public Evento(String titolo, LocalDate data, int numeroPostiTotali) throws Exception {
 		this.setTitolo(titolo);
 		this.setNumeroPostiPrenotati(0);
-		this.setNumeroPostiTotali(numeroPostiTotali);
-	}
+		this.setNumeroPostiTotali(numeroPostiTotali);	}
 	// -----------------------------------------------
 
 	// -------------SET e GET----------------
