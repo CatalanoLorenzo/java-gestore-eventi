@@ -5,18 +5,24 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Concerto extends Evento {
+
+	// ----------------VARIABILI-------------------------
 	private LocalTime ora;
 	private BigDecimal prezzo;
 	private String prezzoFormattato;
 	private String oraFormattata;
+	// -----------------------------------------------
 
+	// ------------------COSTRUTTORE------------------
 	public Concerto(String titolo, LocalDate data, int numeroPostiTotali, int ore, int minuti, int secondi,
 			BigDecimal prezzo) throws Exception {
 		super(titolo, data, numeroPostiTotali);
 		this.setOra(ore, minuti, secondi);
 		this.setPrezzo(prezzo);
 	}
+	// -----------------------------------------------
 
+	// ------------------SET E GET-------------------
 	public LocalTime getOra() {
 		return ora;
 	}
@@ -40,7 +46,9 @@ public class Concerto extends Evento {
 		}
 
 	}
+	// -----------------------------------------------
 
+	// ---------------FUNZIONI------------------
 	public void ritornoOraEPrezzo() {
 		this.prezzoFormattato = this.prezzo + "€";
 		this.oraFormattata = this.ora.toString();
@@ -57,7 +65,8 @@ public class Concerto extends Evento {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return this.getData() + this.getOraFormattata() + " - " + this.getTitolo() + " - " + this.getPrezzoFormattato() ;
+		return this.getData() + this.getOraFormattata() + " - " + this.getTitolo() + " - " + this.getPrezzoFormattato();
 	}
+	// -----------------------------------------------
 
 }

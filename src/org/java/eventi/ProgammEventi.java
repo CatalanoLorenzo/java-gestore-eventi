@@ -6,14 +6,19 @@ import java.util.List;
 
 public class ProgammEventi {
 
+	// ---------------VARIABILI-----------------------
 	private String titolo;
 	private List<Evento> eventi;
+	// -----------------------------------------------
 
+	// ----------------COSTRUTTORE----------------------
 	public ProgammEventi(String titolo, List<Evento> eventi) {
 		this.eventi = new ArrayList<Evento>();
 		this.setTitolo(titolo);
 	}
+	// -----------------------------------------------
 
+	// ----------------GET E SET--------------
 	public String getTitolo() {
 		return titolo;
 	}
@@ -29,7 +34,9 @@ public class ProgammEventi {
 	public void setEventi(List<Evento> eventi) {
 		this.eventi = eventi;
 	}
+	// -----------------------------------------------
 
+	// ----------------FUNZIONI---------------------
 	public void aggiungiEvento(Evento evento) {
 		this.eventi.add(evento);
 	}
@@ -64,4 +71,6 @@ public class ProgammEventi {
 		}
 		return stringaEvento;
 	}
+	// -----------------------------------------------
+
 }
