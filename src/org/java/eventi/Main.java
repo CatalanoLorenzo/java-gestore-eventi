@@ -42,7 +42,7 @@ public class Main {
 					System.out.println("scelta non chiara , riprova!");
 				}
 			}
-			System.out.println("posti totali : " + nuovoEvento.getNumeroPostiTotali() + "posti prenotati : " + nuovoEvento.getNumeroPostiPrenotati());
+			System.out.println("posti totali : " + nuovoEvento.getNumeroPostiTotali() + "posti disponibili : " + (nuovoEvento.getNumeroPostiTotali() - nuovoEvento.getNumeroPostiPrenotati()) );
 			System.out.print("vuoi disdire prenotazioni per l'evento? Y/n ?");
 			String choise2 = input.nextLine();
 			while(true) {
@@ -59,7 +59,7 @@ public class Main {
 					System.out.println("scelta non chiara , riprova!");
 				}
 			}
-			System.out.println("posti totali : " + nuovoEvento.getNumeroPostiTotali() + "posti prenotati : " + nuovoEvento.getNumeroPostiPrenotati());
+			System.out.println("posti totali : " + nuovoEvento.getNumeroPostiTotali() + "posti disponibili : " + (nuovoEvento.getNumeroPostiTotali() - nuovoEvento.getNumeroPostiPrenotati()) );
 			
 		} catch (Exception e) {
 			e.printStackTrace();
